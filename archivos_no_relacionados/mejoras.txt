@@ -1,0 +1,13 @@
+-hay que mejorar el responsive de las cards
+-añadir graficos
+-Hacer que te salga renteria tambien    
+-añadir un carrusel a la imagen de inviarno
+-corregir el localstorage
+-al clickar dos veces eliminar la ciudad
+
+
+
+
+links
+https://www.el-tiempo.net/api
+RapidAPI Client

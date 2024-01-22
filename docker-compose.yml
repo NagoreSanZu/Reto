@@ -1,0 +1,74 @@
+version: '3'
+#maquinas:
+services:
+  #maquina apache1
+  maquinaApache:
+    #imagen oficial de apache HTTP server
+    image: httpd
+    #esto sirve para reiniciar el contenedor siempre que se detenga.
+    restart: always
+    #puertos para esta maquina 
+    ports:
+      - "8081:80"
+    #el volumen con el index1.html
+    volumes:
+      - ./datos_proyecto/web/:/usr/local/apache2/htdocs/
+
+  #maquina de nginx
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    #volumen de nginx donde utilizamos el archivo de configuracion nginx.conf
+    volumes:
+      - ./datos_proyecto/nginx.conf:/etc/nginx/nginx.conf
+
+  tratamiento_datos_nagore:
+    image: docker.io/bitnami/laravel:10
+    ports:
+      - '8085:8000'
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=Nagore2023
+      - DB_DATABASE=nagore_reto
+    volumes:
+      - './datos_proyecto/laravel_datos/:/app'
+
+  laravel_api_nagore:
+    image: docker.io/bitnami/laravel:10
+    ports:
+      - '8086:8000'
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=Nagore2023
+      - DB_DATABASE=nagore_reto
+    volumes:
+      - './datos_proyecto/laravel_api/:/app'
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'nagore_reto'
+      MYSQL_USER: 'nagore'
+      MYSQL_PASSWORD: 'Nagore2023'
+      MYSQL_ROOT_PASSWORD: 'Nagore2023'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./datos_proyecto/mysql/:/var/lib/mysql
+
+  phpmyadmin:
+        image: 'phpmyadmin:latest'
+        ports:
+            - 8084:80
+        environment:
+            - PMA_ARBITRARY=1
+
+volumes:
+  my-db:
