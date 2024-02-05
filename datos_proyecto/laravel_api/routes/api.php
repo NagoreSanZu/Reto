@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+
+use App\Models\Ciudad;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,4 +26,8 @@ Route::post('login', [RegisterController::class, 'login']);
 
 Route::middleware('auth:api')->group( function () {
     Route::get('logout', [RegisterController::class, 'logout']);
+});
+
+Route::get("recogerDatos", function(){
+    return json_decode(Ciudad::all());
 });

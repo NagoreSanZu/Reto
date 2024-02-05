@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('grafica');
     new Chart(ctx, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
         datasets: [{
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         scales: {
           x: {
             ticks: {
-              color: 'white',
+              color: 'black',
               font: {
                 size: 12,
                 family: 'Outfit, sans-serif',
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
           y: {
             beginAtZero: true,
             ticks: {
-              color: 'white',
+              color: 'black',
               font: {
                 size: 5,
                 family: 'Outfit, sans-serif',
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         plugins: {
           legend: {
             labels: {
-              color: 'white',
+              color: 'black',
               fontSize: 14,
               fontFamily: 'Outfit, sans-serif',
               textShadow: '0 0 4px rgb(3, 3, 3)',

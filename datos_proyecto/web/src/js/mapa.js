@@ -1,44 +1,31 @@
-var lugares = [
-    { "nombre": "Irun", "latitud": 43.3390, "longitud": -1.7896 },
-    { "nombre": "Donostia/San Sebastian", "latitud": 43.3183, "longitud": -1.9812 },
-    { "nombre": "Errenteria", "latitud": 43.3119, "longitud": -1.8985 },
-    { "nombre": "Oiartzun", "latitud": 43.2998, "longitud": -1.8608 },
-    //{ "nombre": "Hernani", "latitud": 43.2653, "longitud": -1.9761 }
-
-];
-
-
-
-lugares.forEach((lugar) => {
-    if (localStorage.getItem("ciudades") && localStorage.getItem("ciudades").includes(lugar.nombre)) {
-        Dartiempo(lugar.nombre)
-    } else {
-        document.getElementById("mainTiempo").innerHTML = "<p>Aún no se ha seleccionado ninguna ciudad</p>"
-    }
-})
-
-
-
-
 var map = L.map('mapa').setView([43.3119, -1.8985], 11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-lugares.forEach((lugar) => {
-    var marker = L.marker([lugar.latitud, lugar.longitud]).addTo(map);
-    marker.bindTooltip(lugar.nombre, {
-        permanent: false,
-        direction: 'top',
-        offset: L.point(0, -20)
+fetch("http://10.10.17.199:8086/api/recogerDatos")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("La solicitud no se pudo completar correctamente.");
+        }
+        return response.json();
     })
+    .then(lugares => {
 
-    marker.on('click', function () {
-        guardarDatos(lugar.nombre)
-    })
+        lugares.forEach((lugar) => {
+            var marker = L.marker([lugar.latitud, lugar.longitud]).addTo(map);
+            marker.bindTooltip(lugar.nombre, {
+                permanent: false,
+                direction: 'top',
+                offset: L.point(0, -20)
+            })
 
-})
-//localstorage
+            marker.on('click', function () {
+                guardarDatos(lugar.nombre)
+            })
+            cargarCiudades()
+        })
+    });
 
 function guardarDatos(ciudad) {
     if (localStorage.getItem("ciudades")) {
@@ -49,5 +36,5 @@ function guardarDatos(ciudad) {
         localStorage.setItem("ciudades", ciudad)
     }
 
-    Dartiempo(ciudad)
+    cargarCiudades()
 }

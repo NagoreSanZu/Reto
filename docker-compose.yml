@@ -33,6 +33,7 @@ services:
       - DB_USERNAME=root
       - DB_PASSWORD=Nagore2023
       - DB_DATABASE=nagore_reto
+    command: ["php", "artisan", "schedule:work"]
     volumes:
       - './datos_proyecto/laravel_datos/:/app'
 

@@ -1,0 +1,135 @@
+/* HACER QUE SEA RESPONSIVE  */
+@media screen and (max-width:720px) {
+    #mainInicio {
+        display: block;
+        width: 800px;
+        height: 1500px;
+    }
+    #grafico {
+        width: 500px;
+
+    }
+
+    #mapa {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .card.tiempo {
+        margin-left: 50px;
+
+    }
+
+    #cards {
+        width: 100%;
+    }
+}
+
+ @media screen and (max-width:666px) {
+    #mainInicio {
+        display: block;
+        width: 800px;
+        height: 1500px;
+    }
+
+    #mapa {
+        width: 100%;
+    }
+
+
+    .card.tiempo {
+        margin-left: 50px;
+
+    }
+
+} 
+
+
+@media screen and (max-width:573px) {
+  
+
+    #mapa {
+        width: 60%;
+        margin-left: 20px;
+    }
+
+    #cards{
+        display: block;
+    }
+    .card.tiempo {
+        margin-left: 140px;
+
+    }
+
+    #grafico {
+        width: 400px;
+
+    }
+
+} 
+
+
+@media screen and (max-width:515px) {
+  
+
+    #mapa {
+        width: 40%;
+        margin-left: 20px;
+
+    }
+
+ 
+    .card.tiempo {
+        margin-left: 100px;
+
+    }
+
+    #grafico {
+        width: 300px;
+
+    }
+
+} 
+
+@media screen and (max-width:404px) {
+  
+
+    #mapa {
+        width: 30%;
+        margin-left: 20px;
+
+    }
+
+ 
+    .card.tiempo {
+        margin-left: 60px;
+
+    }
+    #grafico {
+        width: 300px;
+
+    }
+
+} 
+
+
+@media screen and (max-width:363px) {
+  
+
+    #mapa {
+        width: 30%;
+        margin-left: 20px;
+    }
+
+ 
+    .card.tiempo {
+        margin-left: 60px;
+
+    }
+    #grafico {
+        width: 300px;
+        margin-left: -10px;
+
+    }
+
+} 

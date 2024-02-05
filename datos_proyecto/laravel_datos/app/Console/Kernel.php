@@ -12,7 +12,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call("App\Http\Controllers\CiudadesController@traer_datos")->everyFifteenMinutes();
+        $schedule->call("App\Http\Controllers\CiudadesController@datos_random")->everyFifteenSeconds();
+        $schedule->call("App\Http\Controllers\HistoricoController@almacenar_datos")->everyFourHours();
+
+
     }
 
     /**
@@ -20,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

@@ -1,7 +1,8 @@
-const laravelApi = "http://localhost:8086"
+var urlActual = (new URL(window.location.origin)).hostname;
+const laravelApi = "http://"+urlActual+":8086";
 async function login(correo, contrasena) {
-    console.log(correo,contrasena)
-    await fetch(laravelApi+"/api/login", {
+    console.log(correo, contrasena)
+    await fetch(laravelApi + "/api/login", {
         method: "POST",
         body: JSON.stringify({
             email: correo,
@@ -10,26 +11,26 @@ async function login(correo, contrasena) {
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
-    }).then((respuesta)=>{
+    }).then((respuesta) => {
         console.log(respuesta);
         return respuesta.json()
-    }).then((data)=>{
+    }).then((data) => {
         console.log(data);
 
         if (data["success"]) {
             sessionStorage.setItem("token", data["data"]["token"]);
             window.location.href = "paginaInicio.html"
-        
+
         } else {
             // Ha fallado el login
             console.error('Error en el inicio de sesión:', data["error"]);
             alert("Contraseña incorrecta")
         }
     })
-    ;
+        ;
 
     // let data = await respuesta.json();
-    
+
 }
 
 // function mostrarInicio(){
@@ -41,7 +42,7 @@ async function login(correo, contrasena) {
 // }
 
 async function register(nombre, correo, contrasena, cContrasena) {
-    console.log(correo, contrasena,nombre,cContrasena) 
+    console.log(correo, contrasena, nombre, cContrasena)
 
     try {
         let respuesta = await fetch(laravelApi + "/api/register", {
@@ -63,18 +64,18 @@ async function register(nombre, correo, contrasena, cContrasena) {
         if (data["success"]) {
             sessionStorage.setItem("token", data["data"]["token"]);
             window.location.href = "paginaInicio.html"
-           
+
         } else {
             // Ha fallado el login
             console.error('Error al registrarse:', data["error"]);
         }
     } catch (error) {
         console.error(error);
-    
-}
+
+    }
 }
 
-async function logout(){
+async function logout() {
     window.location.href = "index.html"
     try {
         let respuesta = await fetch(laravelApi + "/api/logout", {
@@ -83,11 +84,11 @@ async function logout(){
                 Authorization: 'Bearer ' + sessionStorage.getItem("token")
             }
         });
-        
+
         let data = await respuesta.json();
         console.log(data);
 
-        if(data["success"]){
+        if (data["success"]) {
             sessionStorage.removeItem("token");
         }
     } catch (error) {
