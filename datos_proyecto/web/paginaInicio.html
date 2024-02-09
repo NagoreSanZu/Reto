@@ -33,27 +33,36 @@
     <script src="./src/js/ciudades.js"></script>
     <script src="./src/js/escogerModo.js "></script>
 
-
+  <script>
+    $(document).tooltip({
+      clases:{
+        "ui-tooltip":"tooltipCiudades"
+      }
+    })
+  </script>
 
 </head>
 
 
 <body id="bodyInicio">
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary p-5">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">NOMBREAPLICAION</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" onclick="logout()">Cerrar Sesion </a>
-                </div>
-            </div>
+          <a class="navbar-brand" href="#">EguzkiHodei</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+            </ul>
+            <span class="navbar-text" onclick="logout()">
+              Cerrar sesión
+            </span>
+          </div>
         </div>
-    </nav>
+      </nav>
 
     <div id="OpcionalIconos" class="col-12">
         <img id="sol" src="src/imagenes/fotosIconos/sol.png" alt="" draggable="true" ondragstart="drag(event, 'sol')">
@@ -61,7 +70,7 @@
             ondragstart="drag(event, 'humedad')">
         <img id="estadoCielo" src="src/imagenes/fotosIconos/estadoCielo.png" alt="" draggable="true"
             ondragstart="drag(event, 'estadoCielo')">
-        <img id="borrarTodo" src="src/imagenes/fotosIconos/basura.png" onclick="resetEstado()" alt="">
+        <img id="borrarTodo" src="src/imagenes/fotosIconos/basura.png" draggable="false" onclick="resetEstado()" title="Haz click para borrar" alt="">
     </div>
 
     <div class="container" id="mainInicio">
@@ -73,6 +82,7 @@
         </div>
     </div>
 
+    
 
 
     

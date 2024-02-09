@@ -1,4 +1,11 @@
 /* HACER QUE SEA RESPONSIVE  */
+
+
+@media screen and (max-width:990px) {
+    nav{
+        height: 150px;
+    }
+}
 @media screen and (max-width:720px) {
     #mainInicio {
         display: block;
@@ -38,7 +45,7 @@
 
 
     .card.tiempo {
-        margin-left: 50px;
+        /* margin-left: 50px; */
 
     }
 
@@ -73,7 +80,7 @@
   
 
     #mapa {
-        width: 40%;
+        width: 400px;
         margin-left: 20px;
 
     }
@@ -91,25 +98,51 @@
 
 } 
 
-@media screen and (max-width:404px) {
+@media screen and (max-width:450px) {
   
 
     #mapa {
-        width: 30%;
+        width: 325px;
         margin-left: 20px;
 
     }
 
  
     .card.tiempo {
-        margin-left: 60px;
+        margin-left: 80px;
 
     }
     #grafico {
         width: 300px;
+        margin-left: 30px;
 
     }
 
+} 
+
+@media screen and (max-width:404px) {
+  
+
+    #mapa {
+        width: 310px;
+        margin-left: 20px;
+
+    }
+
+ 
+    .card.tiempo {
+        margin-left: 80px;
+
+    }
+    #grafico {
+        width: 300px;
+        margin-left: 30px;
+
+    }
+    #OpcionalIconos{
+        width: 220px;
+       
+    }
 } 
 
 
@@ -117,8 +150,12 @@
   
 
     #mapa {
-        width: 30%;
+        width: 280px;
         margin-left: 20px;
+    }
+    #OpcionalIconos{
+        width: 220px;
+       
     }
 
  
@@ -128,7 +165,7 @@
     }
     #grafico {
         width: 300px;
-        margin-left: -10px;
+        margin-left: 10px;
 
     }
 

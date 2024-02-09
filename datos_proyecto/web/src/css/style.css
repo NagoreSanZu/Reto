@@ -16,7 +16,7 @@ body {
 nav {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.178);
-    height: 90px;
+    height: 80px;
 
 }
 
@@ -50,7 +50,6 @@ a:hover {
     margin-top: 30px;
     justify-content: center;
     flex-wrap: wrap;
-    height: 500px;
     width: 100%;
 
 }
@@ -61,12 +60,14 @@ a:hover {
 
 .card.tiempo {
     background-color: rgba(240, 248, 255, 0.362);
-    margin-left: 20px;
+    margin-left: 20px; 
     width: 200px;
     height: 200px;
     margin-bottom: 39px;
     border-radius: 5px;
-    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 
 }
 
@@ -84,6 +85,7 @@ a:hover {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 20px;
+    
 }
 
 
@@ -117,11 +119,22 @@ a:hover {
 #grafico {
     background-color: rgba(240, 248, 255, 0.751);
     width: 600px;
-    margin-left: 5%;
+    margin-left: 1%;
     margin-top: 20px;
     color: black;
     border: 0px solid;
     border-radius: 10px;
 }
 
+/* para el cambio de color del */
 
+.seleccionado{
+    filter: hue-rotate(140deg);
+}
+
+#cerrarSesion{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    
+}

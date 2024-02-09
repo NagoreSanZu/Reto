@@ -19,6 +19,8 @@ async function login(correo, contrasena) {
 
         if (data["success"]) {
             sessionStorage.setItem("token", data["data"]["token"]);
+            sessionStorage.setItem("nombre", data["data"]["nombre"]);
+
             window.location.href = "paginaInicio.html"
 
         } else {
@@ -63,6 +65,8 @@ async function register(nombre, correo, contrasena, cContrasena) {
 
         if (data["success"]) {
             sessionStorage.setItem("token", data["data"]["token"]);
+            sessionStorage.setItem("nombre", nombre);
+
             window.location.href = "paginaInicio.html"
 
         } else {
@@ -94,4 +98,11 @@ async function logout() {
     } catch (error) {
         console.log(error);
     }
+}
+
+
+function mostrarNombre(){
+    var nombre = sessionStorage.getItem("nombre")
+    alert("Nombre de usuario: " + nombre );
+
 }

@@ -1,6 +1,5 @@
 function drag(ev, id) {
     ev.dataTransfer.setData("text", id);
-    console.log(id)
 }
 
 
@@ -23,15 +22,16 @@ function drop(ev) {
         console.error("No se pudo encontrar el elemento con el ID especificado:", id);
     }
 }
-
+var configuracion
 function darDatos(id, lugarDestino) {
+    clearInterval(intervalo);
+
     if (id == "estadoCielo") {
         sHtml = ""
         ciudades.forEach((ciudad) => {
             if (lugarDestino == ciudad.nombre) {
-                console.log(ciudad.nombre)
-                // sHtml += '<div class="col-12 col-md-6 dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">'
-                sHtml += `
+                configuracion = ciudad.nombre
+                sHtml += `      <p><b>${ciudad.nombre.toUpperCase()}</b></p>
                                 <p><b>Estado del cielo</b></p>
                                 <p>${ciudad.estadoCielo}</p>
                                 <p> <b> Nubes:</b></p>
@@ -48,10 +48,10 @@ function darDatos(id, lugarDestino) {
         sHtml = ""
         ciudades.forEach((ciudad) => {
             if (lugarDestino == ciudad.nombre) {
-                console.log(ciudad.nombre)
-                // sHtml += '<div class="col-12 col-md-6 dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">'
-                sHtml += `
-                                <p> <b>Visibilidad:</b></p>
+                configuracion = ciudad.nombre
+
+                sHtml += `      <p><b>${ciudad.nombre.toUpperCase()}</b></p>
+                                <p><b >Visibilidad:</b></p>
                                 <p>${ciudad.visibilidad}</p>
                                 <img></im>
                                 
@@ -62,11 +62,12 @@ function darDatos(id, lugarDestino) {
 
     }
     if (id == "humedad") {
-        console.log("he entrado en humedad")
         sHtml = ""
         ciudades.forEach((ciudad) => {
             if (lugarDestino == ciudad.nombre) {
-                sHtml += `
+                configuracion = ciudad.nombre
+
+                sHtml += `      <p><b>${ciudad.nombre.toUpperCase()}</b></p>
                                 <p> <b>La humedad es del:</b></p>
                                 <p>${ciudad.humedad}%</p>`
                 document.getElementById(`${ciudad.nombre}`).innerHTML = sHtml;
@@ -77,9 +78,7 @@ function darDatos(id, lugarDestino) {
 
 }
 
-
-
-
 function resetEstado() {
-    cargarCiudades()
+    cargarCiudades();
+    aaaa();
 }

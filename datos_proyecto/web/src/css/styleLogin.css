@@ -13,7 +13,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 200px;
-    
+    z-index:100;
   }
 
   input {
@@ -48,3 +48,33 @@ i{
     color: hsl(195, 41%, 60%);
     font-size: 80px;
 }
+
+
+/*animacion */
+.container {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.animacion {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* posición inicial */
+  transform: translate(-50%, -50%);
+  animation: mover 5s linear infinite; /* animación */
+  z-index: -1;
+}
+
+@keyframes mover {
+  0% {
+    left: 0%; /* posición inicial */
+    transform: translate(-50%, -50%) rotate(0deg); /* rotación inicial */
+  }
+  100% {
+    left: 100%; /* posición final */
+    transform: translate(-50%, -50%) rotate(360deg); /* rotación final */
+  }
+}
+
